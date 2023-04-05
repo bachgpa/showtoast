@@ -1,0 +1,157 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+body > div{
+    place-content: center;
+}
+
+
+
+.btn {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 20px;
+    border-radius: 24px;
+    margin: 16px 16px;
+    min-width: 140px;
+    max-width: 250px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+.btn.btn__success {
+    background-color: #47d864;
+}
+.btn.btn__error {
+    background-color: #ff623d;
+}
+.btn.btn__info{
+    background-color: #2f86eb;
+}
+.btn.btn__warn {
+    background-color: #ffc021;
+}
+
+.toast {
+    margin-top: 24px;
+    padding: 8px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    border-left: 4px solid;
+    box-shadow: 0 0 14px 0 #999;
+    min-width: 400px;
+    max-width: 450px;
+    animation: slideInLeft ease 0.4s, fadeOut 0.6s 2.2s forwards ;
+}
+
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(calc(100% + 32px));
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.toast__info .toast__icon{
+    color: #2f86eb;
+}
+.toast__info {
+    border-color: #2f86eb;
+}
+
+
+.toast__success .toast__icon{
+    color: #47d864;
+}
+.toast__success {
+    border-color: #47d864;
+}
+
+
+.toast__warn .toast__icon{
+    color: #ffc021;
+}
+.toast__warn {
+    border-color: #ffc021;
+}
+
+
+.toast__error .toast__icon{
+    color: #ff623d;
+}
+.toast__error {
+    border-color: #ff623d;
+}
+
+
+
+.toast__icon {
+    padding: 0 14px;
+    font-size: 24px;
+}
+
+.toast__body {
+    flex-grow: 1;
+    padding: 8px 0;
+}
+
+.toast__title {
+    font-weight: 700;
+}
+
+.toast__message {
+    font-size: 14px;
+    color: #888;
+}
+
+.toast__close:hover {
+    cursor: pointer;
+}
+
+    .toast__close {
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#toast {
+    position: fixed;
+    right: 32px;
+    top: 32px;
+}

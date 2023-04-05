@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>toast message</title>
+</head>
+<body>
+    <div id="toast">
+        <!-- Info -->
+        <div class="toast toast__info">
+            <div class="toast__icon">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <div class="toast__body">
+                <div class="toast__title">Info</div>
+                <div class="toast__message">
+                    Lorem ipsum dolor sit, amet consectetur vitae aliquam.
+                </div>
+            </div>
+            <div class="toast__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        
+    </div>
+    <div>
+        <div class="btn btn__info">Show info toast</div>
+        <div class="btn btn__success">Show success toast</div>
+        <div class="btn btn__warn">Show warn toast</div>
+        <div class="btn btn__error">Show error toast</div>
+    </div>
+    
+    <script>
+        const toast = [
+            {
+                type: "info",
+                icon: "fa-solid fa-circle-info",
+                title: "Info",
+                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
+            },
+            {
+                type: "success",
+                icon: "fa-solid fa-circle-check",
+                title: "Success",
+                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
+            },
+            {
+                type: "warn",
+                icon: "fa-solid fa-circle-exclamation",
+                title: "Warning",
+                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
+            },
+            {
+                type: "error",
+                icon: "fa-solid fa-circle-xmark",
+                title: "Error",
+                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
+            }
+        ]
+    </script>
+
+
+    <script src="https://kit.fontawesome.com/1173538a12.js" crossorigin="anonymous"></script>
+</body>
+</html>
