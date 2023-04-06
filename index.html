@@ -10,7 +10,7 @@
 <body>
     <div id="toast">
         <!-- Info -->
-        <div class="toast toast__info">
+        <!-- <div class="toast toast__info">
             <div class="toast__icon">
                 <i class="fa-solid fa-circle-info"></i>
             </div>
@@ -23,43 +23,168 @@
             <div class="toast__close">
                 <i class="fa-solid fa-xmark"></i>
             </div>
-        </div>
+        </div> -->
         
     </div>
     <div>
-        <div class="btn btn__info">Show info toast</div>
-        <div class="btn btn__success">Show success toast</div>
-        <div class="btn btn__warn">Show warn toast</div>
-        <div class="btn btn__error">Show error toast</div>
+        <div class="btn btn__info" onclick="showInfoToast()">Show info toast</div>
+        <div class="btn btn__success" onclick="showSuccessToast()">Show success toast</div>
+        <div class="btn btn__warn" onclick="showWarnToast()">Show warn toast</div>
+        <div class="btn btn__error" onclick="showErrorToast()">Show error toast</div>
     </div>
     
     <script>
-        const toast = [
-            {
-                type: "info",
-                icon: "fa-solid fa-circle-info",
-                title: "Info",
-                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
-            },
-            {
-                type: "success",
-                icon: "fa-solid fa-circle-check",
-                title: "Success",
-                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
-            },
-            {
-                type: "warn",
-                icon: "fa-solid fa-circle-exclamation",
-                title: "Warning",
-                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
-            },
-            {
+        // const toastList = [
+        //     {
+        //         type: "info",
+        //         icon: "fa-solid fa-circle-info",
+        //         title: "Info",
+        //         message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
+        //     },
+        //     {
+        //         type: "success",
+        //         icon: "fa-solid fa-circle-check",
+        //         title: "Success",
+        //         message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
+        //     },
+        //     {
+        //         type: "warn",
+        //         icon: "fa-solid fa-circle-exclamation",
+        //         title: "Warning",
+        //         message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
+        //     },
+        //     {
+        //         type: "error",
+        //         icon: "fa-solid fa-circle-xmark",
+        //         title: "Error",
+        //         message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
+        //     }
+        // ]
+
+        const btn = document.querySelectorAll(".btn")
+        const btnInfo = document.querySelector(".btn__info")
+        const btnSuccess = document.querySelector(".btn__success")
+        const btnWarn = document.querySelector(".btn__warn")
+        const btnError = document.querySelector(".btn__error")
+        
+        
+        // showSuccessToast
+        // showWarnToast
+        // showErrorToast
+        
+
+        function toast({
+            icon = '',
+            title = '', 
+            message = '', 
+            type ='info', 
+            duration = 3000})
+            {   
+
+                const main = document.querySelector("#toast")
+                if (main) {
+                    const icons = {
+                        success: 'fa-solid fa-circle-check',
+                        info: 'fa-solid fa-circle-info',
+                        warn: 'fa-solid fa-circle-exclamation',
+                        error: 'fa-solid fa-circle-xmark',
+                    };
+                    const icon = icons[type]
+                    const delay = (duration/1000).toFixed(2)
+                    const toast = document.createElement('div');
+                    toast.classList.add('toast', `toast__${type}`);
+                    toast.style.animation = `slideInLeft ease 0.3s, fadeOut 0.6s ${delay}s forwards`
+                    toast.innerHTML=
+                    `
+                        <div class="toast__icon">
+                            <i class = "${icon}"></i>
+                        </div>
+                        <div class="toast__body">
+                            <div class="toast__title">${title}</div>
+                            <div class="toast__message">
+                                ${message}
+                            </div>
+                        </div>
+                        <div class="toast__close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    `
+                    main.appendChild(toast)
+                    setTimeout(() => {
+                        main.removeChild(toast)
+                    }, duration + 1000);
+                }
+
+            }   
+
+        // toast({
+        //     icon: 'fa-solid fa-circle-info',
+        //     title: 'Info',
+        //     message: 'Lorem ipsum dolor sit, amet consectetur vitae aliquam.',
+        //     type: 'info',
+        //     duration: 3000,
+        // })
+        function showErrorToast (){
+            toast({
                 type: "error",
-                icon: "fa-solid fa-circle-xmark",
+                // icon: "fa-solid fa-circle-info",
                 title: "Error",
-                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam."
-            }
-        ]
+                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam.",
+                duration: 1000,
+            })
+        };
+        function showInfoToast (){
+            toast({
+                type: "info",
+                // icon: "fa-solid fa-circle-info",
+                title: "Info",
+                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam.",
+                duration: 1000,
+            })
+        };
+        function showSuccessToast (){
+            toast({
+                type: "success",
+                // icon: "fa-solid fa-circle-info",
+                title: "Success",
+                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam.",
+                duration: 1000,
+            })
+        };
+        function showWarnToast (){
+            toast({
+                type: "warn",
+                // icon: "fa-solid fa-circle-info",
+                title: "Warn",
+                message: "Lorem ipsum dolor sit, amet consectetur vitae aliquam.",
+                duration: 1000,
+            })
+        };
+        // btn.onclick = function(){
+        //     console.log(this)
+        // }
+        // function showInfoToast (){
+        //     const innerToast = document.createElement('div');
+        //     innerToast.classList.add('toast', `toast__${toastList[0].type}`);
+        //     innerToast.innerHTML=`
+        //         <div class="toast__icon">
+        //             <i class = "${toastList[0].icon}"></i>
+        //         </div>
+        //         <div class="toast__body">
+        //             <div class="toast__title">${toastList[0].title}</div>
+        //             <div class="toast__message">
+        //                 ${toastList[0].message}
+        //             </div>
+        //         </div>
+        //         <div class="toast__close">
+        //             <i class="fa-solid fa-xmark"></i>
+        //         </div>
+        //     `
+        //     toast.appendChild(innerToast)
+        //     console.log(toast)
+        // }
+
+        
     </script>
 
 

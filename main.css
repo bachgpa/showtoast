@@ -68,7 +68,7 @@ body > div{
     box-shadow: 0 0 14px 0 #999;
     min-width: 400px;
     max-width: 450px;
-    animation: slideInLeft ease 0.4s, fadeOut 0.6s 2.2s forwards ;
+    transition: all linear 0.3s;
 }
 
 
