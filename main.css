@@ -43,6 +43,11 @@ body > div{
     opacity: 0.8;
     font-weight: 600;
 }
+.btn:active {
+    cursor: pointer;
+    opacity: 1;
+    font-weight: 600;
+}
 
 .btn.btn__success {
     background-color: #47d864;
@@ -82,11 +87,11 @@ body > div{
         opacity: 1;
     }
 }
-@keyframes fadeOut {
+/* @keyframes fadeOut {
     to {
         opacity: 0;
     }
-}
+} */
 
 .toast__info .toast__icon{
     color: #2f86eb;
